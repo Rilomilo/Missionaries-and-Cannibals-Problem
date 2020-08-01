@@ -80,7 +80,8 @@ module.exports = {
             loader: 'url-loader',
             options: {
                 limit: 8 * 1024, // 小于8kB的base64编码处理
-                name: 'image/[name]-[hash:10].[ext]'
+                name: 'image/[name]-[hash:10].[ext]',
+                esModule:false
             }
         },
         {
