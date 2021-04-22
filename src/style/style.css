@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 30px auto;
+  width: 900px;
+}
+#app .input-panel {
+  display: flex;
+}
+#app .input-panel .input-wrapper {
+  margin: 0 10px;
+}
+#app .tips {
+  margin: 20px 0;
+}
+#app .tips span {
+  font-size: 30px;
+}
+#app .result-panel .case-card {
+  margin: 20px 0;
+}
+#app .result-panel .case-card .case .status-panel .status {
+  line-height: 50px;
+}
+#app .result-panel .case-card .case .status-panel .status .el-tag {
+  cursor: pointer;
+}
+#app .result-panel .case-card .case .case-dialog .stage {
+  position: relative;
+  margin: 20px 0;
+  height: 260px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+#app .result-panel .case-card .case .case-dialog .stage .right,
+#app .result-panel .case-card .case .case-dialog .stage .boat,
+#app .result-panel .case-card .case .case-dialog .stage .left {
+  position: relative;
+  z-index: 10;
+  height: 260px;
+  width: 120px;
+  background-repeat: no-repeat;
+  background-position: 0 160px;
+}
+#app .result-panel .case-card .case .case-dialog .stage .left {
+  float: left;
+  background-image: url("../image/left.gif");
+  transition: all,1000ms;
+}
+#app .result-panel .case-card .case .case-dialog .stage .right {
+  float: right;
+  background-image: url("../image/right.gif");
+  transition: all,1000ms;
+}
+#app .result-panel .case-card .case .case-dialog .stage .boat {
+  position: absolute;
+  background-image: url("../image/boat.gif");
+  transition: all,1000ms;
+  z-index: 20;
+}
+#app .result-panel .case-card .case .case-dialog .stage .boat.boat-left {
+  left: 112px;
+}
+#app .result-panel .case-card .case .case-dialog .stage .boat.boat-right {
+  left: 536px;
+}
+#app .result-panel .case-card .case .case-dialog .stage .background {
+  position: absolute;
+  z-index: 5;
+  bottom: 0px;
+  height: 30px;
+  width: 760px;
+  background-color: #66ccff;
+}
+#app .result-panel .case-card .case .case-dialog .stage .people {
+  position: relative;
+  transform: translateY(90px);
+}
+#app .result-panel .case-card .case .case-dialog .stage .people .missionary-wrap .missionary {
+  background-color: #a7e6a4;
+}
+#app .result-panel .case-card .case .case-dialog .stage .people .cannibals-wrap .cannibals {
+  border-radius: 50%;
+  background-color: #f8b4b0;
+}
+#app .result-panel .case-card .case .case-dialog .stage .people .missionary-wrap,
+#app .result-panel .case-card .case .case-dialog .stage .people .cannibals-wrap {
+  position: relative;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  font-size: 26px;
+  line-height: 40px;
+}
+#app .result-panel .case-card .case .case-dialog .stage .people .missionary,
+#app .result-panel .case-card .case .case-dialog .stage .people .cannibals {
+  display: inline-block;
+  margin-right: 6px;
+  width: 40px;
+  height: 40px;
+}
+#app .result-panel .case-card .case .case-dialog .button-panel {
+  text-align: center;
+}
+/*# sourceMappingURL=./style.css.map */

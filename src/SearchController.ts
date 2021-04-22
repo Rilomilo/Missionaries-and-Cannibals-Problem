@@ -4,6 +4,7 @@ export default class SearchController{
     public n:number; 
     public k:number; // 每次最多移动
     public visited_status_ls:Status[]=[];
+    private _result: Status[][] =[];
 
     constructor(n: number, k: number) {
         this.n = n;
@@ -22,7 +23,11 @@ export default class SearchController{
 
     public dfs(s:Status){
         if(s.cr==this.n && s.mr==this.n){
-            console.log(this.visited_status_ls);
+            let t=[];
+            for(let i=0;i<this.visited_status_ls.length;i++){
+                t.push(this.visited_status_ls[i]);
+            }
+            this._result.push(t);
         }
 
         let maxm,maxc;
@@ -47,5 +52,9 @@ export default class SearchController{
                 }
             }
         }
+    }
+
+    get result(): Status[][] {
+        return this._result;
     }
 }

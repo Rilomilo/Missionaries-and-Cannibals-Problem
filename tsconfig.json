@@ -2,10 +2,12 @@
 	"include": ["src/**/*"],
 	"compilerOptions": {
 		"module": "commonjs",
+//		"moduleResolution": "classic",
 		"target": "ES6",
 		"sourceMap": true,
 		"strict": true,
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"allowJs": true
 	},
 	"exclude": [
 		"node_modules"

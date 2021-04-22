@@ -15,14 +15,16 @@ module.exports = {
         path: resolve(__dirname, 'dist'),
         // chunkFilename:'js/[name]-chunk-[hash].js'
     },
-    mode: 'development',
-    devtool: 'cheap-module-eval-source-map',
+    // mode: 'development',
+    mode:'production',
+    // devtool: 'cheap-module-eval-source-map',
+    // devtool:false,
     resolve: {
         alias: {
             '@': resolve(__dirname, 'src'),
             vue$: 'vue/dist/vue.runtime.esm.js'
         },
-        extensions:['.js','.vue'],
+        extensions:['.js','.vue','.ts'],
         modules:[
             resolve(__dirname,'node_modules')
         ]
@@ -34,8 +36,17 @@ module.exports = {
             maxSize:1024*1024 //1MB
         }
     },
+    externals: {
+	    'vue': 'Vue',
+        'element-ui': 'Element'
+	},
     module: {
         rules: [{
+            test: /\.ts$/,
+            loader: "ts-loader",
+            options: { appendTsSuffixTo: [/\.vue$/] },
+        },
+        {
             test:/\.html$/,
             loader:'html-loader'
         },
@@ -82,9 +93,9 @@ module.exports = {
             analyzerPort:8888,
             openAnalyzer:false
         }),
-        new webpack.DllReferencePlugin({
-            manifest:resolve(__dirname,'dll/manifest.json')
-        }),
+        // new webpack.DllReferencePlugin({
+        //     manifest:resolve(__dirname,'dll/manifest.json')
+        // }),
         new AddAssetHtmlPlugin([
             {
                 filepath: resolve('./dll/*.js'),

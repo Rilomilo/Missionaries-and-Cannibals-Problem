@@ -7,3 +7,124 @@ body{
 	margin: 30px auto;
 	width: 900px;
 }
+
+#app{
+	.input-panel{
+        display: flex;
+        
+        .input-wrapper{
+            margin: 0 10px;
+        }
+    }
+    .tips{
+        margin: 20px 0;
+
+        span{
+            font-size: 30px;
+        }
+    }
+    .result-panel{
+        .case-card{
+            margin: 20px 0;
+            .case-title{
+                // line-height: 80px;
+            }
+            .case{
+                .status-panel{
+                    .status{
+                        line-height: 50px;
+    
+                        .el-tag{
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .case-dialog{
+                    .stage{
+                        @stage-height:260px;
+
+                        position: relative;
+                        margin: 20px 0;
+                        height: @stage-height;
+                        background-color: rgba(0,0,0,.05);
+
+                        .right,.boat,.left{
+                            position: relative;
+                            z-index: 10;
+                            height: @stage-height;
+                            width: 120px;
+                            background-repeat: no-repeat;
+                            background-position: 0 @stage-height - 100px;
+                        }
+                        .left{
+                            float: left;
+                            background-image: url("../image/left.gif");
+                            transition: all,1000ms;
+                        }
+                        .right{
+                            float: right;
+                            background-image: url("../image/right.gif");
+                            transition: all,1000ms;
+                        }
+                        .boat{
+                            position: absolute;
+                            background-image: url("../image/boat.gif");
+                            transition: all,1000ms;
+                            z-index: 20;
+
+                            &.boat-left{
+                                left: 112px;
+                            }
+                            &.boat-right{
+                                left: 760px- 112px * 2;
+                            }
+                        }
+                        .background{
+                            position: absolute;
+                            z-index: 5;
+                            bottom: 0px;
+                            height: 30px;
+                            width: 760px;
+                            background-color: rgb(102,204,255,.3);
+                        }
+                        .people{
+                            position: relative;
+                            transform: translateY(@stage-height - 170px);
+
+                            .missionary-wrap{
+                                .missionary{
+                                    background-color: rgb(167, 230, 164);
+                                }
+                            }
+                            .cannibals-wrap{
+                                .cannibals{
+                                    border-radius: 50%;
+                                    background-color: rgb(248, 180, 176);
+                                }
+                            }
+                            .missionary-wrap,.cannibals-wrap{
+                                position: relative;
+                                margin: 10px 0;
+                                display: flex;
+                                justify-content: center;
+
+                                font-size: 26px;
+                                line-height: 40px;
+                            }
+                            .missionary,.cannibals{
+                                display: inline-block;
+                                margin-right: 6px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                    }
+                    .button-panel{
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

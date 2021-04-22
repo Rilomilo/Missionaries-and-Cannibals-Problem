@@ -1,64 +1,52 @@
-
-<!--<template>-->
-<!--    <div>-->
-<!--        <input v-model="msg">-->
-<!--        <p>msg: {{ msg }}</p>-->
-<!--        <p>computed msg: {{ computedMsg }}</p>-->
-<!--        <button @click="greet">Greet</button>-->
-<!--    </div>-->
-<!--</template>-->
-
-<!--<script lang="ts">-->
-<!--    import Vue from 'vue'-->
-
-<!--    export default class App extends Vue {-->
-<!--        // 初始化数据-->
-<!--        msg = 123-->
-
-<!--        // 声明周期钩子-->
-<!--        mounted () {-->
-<!--            this.greet()-->
-<!--        }-->
-
-<!--        // 计算属性-->
-<!--        get computedMsg () {-->
-<!--            return 'computed ' + this.msg-->
-<!--        }-->
-
-<!--        // 方法-->
-<!--        greet () {-->
-<!--            alert('greeting: ' + this.msg)-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
-
 <template>
     <div id="app">
         <div class="input-panel">
-            <el-input v-model="n" placeholder="请输入传道士和野人的数量n"></el-input>
-            <el-input v-model="k" placeholder="请输入船每次最多运送人数"></el-input>
-            <el-button type="primary" @click="handler">初始化</el-button>
+            <div class="input-wrapper">
+                <el-input v-model="n" placeholder="n">
+                    <template slot="prepend">请输入传道士和野人的数量n</template>
+                </el-input>
+            </div>
+            <div class="input-wrapper">
+                <el-input v-model="k" placeholder="k">
+                    <template slot="prepend">请输入船的最多载人数k</template>
+                </el-input>
+            </div>
+            
+            <el-button type="primary" @click="handler">搜索</el-button>
+        </div>
+        <div class="tips" v-if="display_tips=='finish'">共有 <span>{{result.length}}</span> 种方案</div>
+        <div class="tips" v-if="display_tips=='calculating'">计算中...</div>
+        <div class="result-panel" v-for="(item, index) in result" :key="index">
+            <el-card class="case-card">
+                <p class="case-title">{{"方案"+(index+1)}}</p>
+                <Case :data="item"></Case>
+            </el-card>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "Case",
-        data:function () {
-            return {
-                n:null,
-                k:null
-            }
-        },
-        methods:{
-            handler(){
+import SearchController from "../SearchController";
 
-            }
+export default {
+    name: "App",
+    data:function () {
+        return {
+            n:null,
+            k:null,
+            result:[],
+            display_tips:""
+        }
+    },
+    methods:{
+        handler(){
+            this.display_tips="calculating";
+
+            setTimeout(()=>{
+                this.result=new SearchController(this.n,this.k).result;
+                this.display_tips="finish";
+            },100)
         }
     }
+}
 </script>
-
-<style scoped>
-
-</style>
