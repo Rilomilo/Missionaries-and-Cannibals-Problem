@@ -1,16 +1,12 @@
 {
     "name": "MC",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "Missionaries and Cannibals Problem with visualization",
     "scripts": {
-        "build": "set NODE_ENV='production' && webpack --config ./webpack.prod.js",
-        "devbuild": "set NODE_ENV='development' && webpack --config ./webpack.dev.js",
-        "serve": "set NODE_ENV='development' && webpack-dev-server --config ./webpack.dev.js --open --host 127.0.0.1 --port 8888",
-        "dll": "webpack --config ./webpack.dll.js"
+        "build": "set NODE_ENV='development' && webpack --config ./webpack.dev.js",
+        "serve": "set NODE_ENV='development' && webpack-dev-server --config ./webpack.dev.js --open --host 127.0.0.1 --port 8888"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "Rilomilo",
     "dependencies": {
         "axios": "^0.19.2",
         "element-ui": "^2.13.2",
